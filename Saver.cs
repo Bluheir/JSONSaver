@@ -17,7 +17,7 @@ namespace JSONSaver
         /// <summary>
         /// The main file path
         /// </summary>
-        public string Path { get; }
+        public string Path { get; private set; }
         /// <summary>
         /// The default value when new values are created.
         /// </summary>
