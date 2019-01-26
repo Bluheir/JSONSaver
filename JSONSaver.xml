@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JSONSaver</name>
+    </assembly>
+    <members>
+        <member name="T:JSONSaver.Types.DataStorage">
+            <summary>
+            The class which saves the JSON data
+            </summary>
+        </member>
+        <member name="M:JSONSaver.Types.DataStorage.FileExists(System.String)">
+            <summary>
+            Returns if that file path exists or not
+            </summary>
+            <param name="path">The file path</param>
+            <returns>Returns true or false if the file path exists respectively</returns>
+        </member>
+        <member name="M:JSONSaver.Types.DataStorage.SaveData``1(``0,System.String,Newtonsoft.Json.Formatting)">
+            <summary>
+            Saves the data for the specified object at the specified path
+            </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="value">The value being saved</param>
+            <param name="path">The file path</param>
+        </member>
+        <member name="M:JSONSaver.Types.DataStorage.LoadData``1(System.String)">
+            <summary>
+            Loads the data from the specified path
+            </summary>
+            <typeparam name="T">The type for the data</typeparam>
+            <param name="path">The file path</param>
+            <returns>The data from that file deserialized to the T</returns>
+        </member>
+        <member name="T:JSONSaver.Types.ISaveable`1">
+            <summary>
+            An interface which has a single value
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:JSONSaver.Types.ISaveable`1.Key">
+            <summary>
+            The key which identifies a part of the collection
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:JSONSaver.ValuesGetter`2" -->
+        <member name="F:JSONSaver.ValuesGetter`2.Values">
+            <summary>
+            The values
+            </summary>
+        </member>
+        <member name="P:JSONSaver.ValuesGetter`2.Path">
+            <summary>
+            The main file path
+            </summary>
+        </member>
+        <member name="P:JSONSaver.ValuesGetter`2.DefaultValue">
+            <summary>
+            The default value when new values are created.
+            </summary>
+        </member>
+        <member name="M:JSONSaver.ValuesGetter`2.#ctor(System.String)">
+            <summary>
+            The constructor for this class
+            </summary>
+            <param name="path">The json file path</param>
+        </member>
+        <member name="M:JSONSaver.ValuesGetter`2.SaveData">
+            <summary>
+            Saves all data to the file path
+            </summary>
+        </member>
+        <member name="M:JSONSaver.ValuesGetter`2.GetValue(`1)">
+            <summary>
+            Gets a value the first value with that key
+            </summary>
+            <param name="key">The value with that key</param>
+            <returns>Returns the first value in Values with that key. Otherwise returns null.</returns>
+        </member>
+        <member name="M:JSONSaver.ValuesGetter`2.GetOrCreateValue(`1)">
+            <summary>
+            Gets or creates a value with that specified key and returns it.
+            </summary>
+            <param name="key">The value with that key</param>
+            <returns>Returns the first value with that key. If it doesn't exist, creates a new value with that key and the value of the default value and returns it.</returns>
+        </member>
+    </members>
+</doc>
