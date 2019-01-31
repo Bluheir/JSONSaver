@@ -4,45 +4,121 @@
         <name>JSONSaver</name>
     </assembly>
     <members>
-        <member name="T:JSONSaver.Types.DataStorage">
+        <member name="T:JSONSaver.Async.AsyncValuesGetter`2">
+            <summary>
+            The main class for saving data to a filepath in json asynchronously
+            </summary>
+            <typeparam name="T">The ISaveable to be saved</typeparam>
+            <typeparam name="TKey">The Type of the key of T</typeparam>
+        </member>
+        <member name="F:JSONSaver.Async.AsyncValuesGetter`2.Values">
+            <summary>
+            The values
+            </summary>
+        </member>
+        <member name="P:JSONSaver.Async.AsyncValuesGetter`2.Path">
+            <summary>
+            The main file path
+            </summary>
+        </member>
+        <member name="P:JSONSaver.Async.AsyncValuesGetter`2.DefaultValue">
+            <summary>
+            The default value when new values are created.
+            </summary>
+        </member>
+        <member name="M:JSONSaver.Async.AsyncValuesGetter`2.#ctor(System.String)">
+            <summary>
+            The constructor for this class (calls a private async void)
+            </summary>
+            <param name="filepath">The file path for saving</param>
+        </member>
+        <member name="M:JSONSaver.Async.AsyncValuesGetter`2.SaveDataAsync">
+            <summary>
+            Saves all data to the file path asynchronously
+            </summary>
+        </member>
+        <member name="M:JSONSaver.Async.AsyncValuesGetter`2.Where(System.Func{`0,System.Boolean})">
+            <summary>
+            Fetches a value based on the predicate
+            </summary>
+            <param name="predicate">The predicate</param>
+            <returns>Returns a value with that predicate</returns>
+        </member>
+        <member name="M:JSONSaver.Async.AsyncValuesGetter`2.GetValue(`1)">
+            <summary>
+            Gets a value the first value with that key
+            </summary>
+            <param name="key">The value with that key</param>
+            <returns>Returns the first value in Values with that key. Otherwise returns null.</returns>
+        </member>
+        <member name="M:JSONSaver.Async.AsyncValuesGetter`2.GetOrCreateValue(`1)">
+            <summary>
+            Gets or creates a value with that specified key and returns it.
+            </summary>
+            <param name="key">The value with that key</param>
+            <returns>Returns the first value with that key. If it doesn't exist, creates a new value with that key and the value of the default value and returns it.</returns>
+        </member>
+        <member name="T:JSONSaver.Data.DataStorage">
             <summary>
             The class which saves the JSON data
             </summary>
         </member>
-        <member name="M:JSONSaver.Types.DataStorage.FileExists(System.String)">
+        <member name="M:JSONSaver.Data.DataStorage.FileExists(System.String)">
             <summary>
             Returns if that file path exists or not
             </summary>
             <param name="path">The file path</param>
             <returns>Returns true or false if the file path exists respectively</returns>
         </member>
-        <member name="M:JSONSaver.Types.DataStorage.SaveData``1(``0,System.String,Newtonsoft.Json.Formatting)">
+        <member name="M:JSONSaver.Data.DataStorage.SaveData``1(``0,System.String,Newtonsoft.Json.Formatting)">
             <summary>
-            Saves a value to json
+            Saves a value to the file path in json
             </summary>
             <typeparam name="T">The type</typeparam>
             <param name="value">The value being saved</param>
             <param name="path">The file path to save the data</param>
             <param name="formatting">The formatting</param>
         </member>
-        <member name="M:JSONSaver.Types.DataStorage.LoadData``1(System.String)">
+        <member name="M:JSONSaver.Data.DataStorage.SaveDataAsync``1(``0,System.String,Newtonsoft.Json.Formatting)">
+            <summary>
+            Saves data asynchronously to json and the file path
+            </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="value">The value to be saved</param>
+            <param name="path">The file location to save the value to</param>
+            <param name="formatting">The formatting</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.WriteAsync(System.String,System.String)">
+            <summary>
+            Writes the data to the specified location asynchronously
+            </summary>
+            <param name="data">The string to be written</param>
+            <param name="filepath">The file location</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.LoadData``1(System.String)">
             <summary>
             Loads the data from the specified path
             </summary>
             <typeparam name="T">The type for the data</typeparam>
-            <param name="path">The file path</param>
+            <param name="filepath">The file path</param>
             <returns>The data from that file deserialized to the T</returns>
         </member>
-        <member name="T:JSONSaver.Types.ISaveable`1">
+        <member name="M:JSONSaver.Data.DataStorage.ReadAllTextAsync(System.String)">
             <summary>
-            An interface which has a single value
+            Reads all text from the specified file path asynchronously
             </summary>
-            <typeparam name="T"></typeparam>
+            <param name="filepath">The file location</param>
+            <returns>Returns the text from that file</returns>
         </member>
-        <member name="P:JSONSaver.Types.ISaveable`1.Key">
+        <member name="M:JSONSaver.Data.DataStorage.LoadDataAsync``1(System.String)">
             <summary>
-            The key which identifies a part of the collection
+            Loads the data from the file from json to the specified type
             </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="filepath">The filepath</param>
+            <returns>Returns the text deserialized to the type of T</returns>
         </member>
         <member name="T:JSONSaver.ValuesGetter`2">
             <summary>
@@ -97,6 +173,17 @@
             </summary>
             <param name="key">The value with that key</param>
             <returns>Returns the first value with that key. If it doesn't exist, creates a new value with that key and the value of the default value and returns it.</returns>
+        </member>
+        <member name="T:JSONSaver.Types.ISaveable`1">
+            <summary>
+            An interface which has a single value
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:JSONSaver.Types.ISaveable`1.Key">
+            <summary>
+            The key which identifies a part of the collection
+            </summary>
         </member>
     </members>
 </doc>
