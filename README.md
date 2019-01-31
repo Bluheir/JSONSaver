@@ -27,7 +27,7 @@ static void Main()
 25
 
 
-//This is what test.json should look like
+//This is what test.json looks like
 [
 	{
 		"Key" : "Sam",
