@@ -11,4 +11,5 @@
         /// </summary>
         T Key { get; set; }
     }
+  
 }

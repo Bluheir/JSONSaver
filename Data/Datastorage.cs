@@ -17,12 +17,13 @@ namespace JSONSaver.Types
             ISaveable<object> a;
             return File.Exists(path);
         }
-        /// <summary>
-        /// Saves the data for the specified object at the specified path
-        /// </summary>
-        /// <typeparam name="T">The type</typeparam>
-        /// <param name="value">The value being saved</param>
-        /// <param name="path">The file path</param>
+/// <summary>
+/// Saves a value to json
+/// </summary>
+/// <typeparam name="T">The type</typeparam>
+/// <param name="value">The value being saved</param>
+/// <param name="path">The file path to save the data</param>
+/// <param name="formatting">The formatting</param>
         public static void SaveData<T>(T value, string path, Formatting formatting = Formatting.Indented)
         {
             File.WriteAllText(path, JsonConvert.SerializeObject(value, formatting));

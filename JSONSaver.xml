@@ -18,11 +18,12 @@
         </member>
         <member name="M:JSONSaver.Types.DataStorage.SaveData``1(``0,System.String,Newtonsoft.Json.Formatting)">
             <summary>
-            Saves the data for the specified object at the specified path
+            Saves a value to json
             </summary>
             <typeparam name="T">The type</typeparam>
             <param name="value">The value being saved</param>
-            <param name="path">The file path</param>
+            <param name="path">The file path to save the data</param>
+            <param name="formatting">The formatting</param>
         </member>
         <member name="M:JSONSaver.Types.DataStorage.LoadData``1(System.String)">
             <summary>
@@ -43,7 +44,13 @@
             The key which identifies a part of the collection
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:JSONSaver.ValuesGetter`2" -->
+        <member name="T:JSONSaver.ValuesGetter`2">
+            <summary>
+            The main class for saving data to a filepath in json
+            </summary>
+            <typeparam name="T">The ISaveable to be saved</typeparam>
+            <typeparam name="TKey">The Type of the key of T</typeparam>
+        </member>
         <member name="F:JSONSaver.ValuesGetter`2.Values">
             <summary>
             The values
@@ -69,6 +76,13 @@
             <summary>
             Saves all data to the file path
             </summary>
+        </member>
+        <member name="M:JSONSaver.ValuesGetter`2.Where(System.Func{`0,System.Boolean})">
+            <summary>
+            Fetches a value based on the predicate
+            </summary>
+            <param name="predicate">The predicate</param>
+            <returns>Returns a value with that predicate</returns>
         </member>
         <member name="M:JSONSaver.ValuesGetter`2.GetValue(`1)">
             <summary>

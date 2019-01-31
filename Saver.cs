@@ -1,13 +1,13 @@
 ﻿using JSONSaver.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace JSONSaver
-{
-    /// <summary>
-    /// The class for mainly loading and saving json data, and getting the data. 
-    /// </summary>
-    /// <typeparam name="T">The ISaveable<T> to be used</typeparam>
-    /// <typeparam name="TKey">The key (must be the same type as T's Key)</typeparam>
+{/// <summary>
+/// The main class for saving data to a filepath in json
+/// </summary>
+/// <typeparam name="T">The ISaveable to be saved</typeparam>
+/// <typeparam name="TKey">The Type of the key of T</typeparam>
     public class ValuesGetter<T, TKey> where T : class, ISaveable<TKey>
     {
         /// <summary>
@@ -45,6 +45,15 @@ namespace JSONSaver
         public void SaveData()
         {
             DataStorage.SaveData(Values, Path);
+        }
+        /// <summary>
+        /// Fetches a value based on the predicate
+        /// </summary>
+        /// <param name="predicate">The predicate</param>
+        /// <returns>Returns a value with that predicate</returns>
+        public IEnumerable<T> Where(Func<T,bool> predicate)
+        {
+            return Values.Where(predicate);
         }
         /// <summary>
         /// Gets a value the first value with that key
