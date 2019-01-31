@@ -2,8 +2,11 @@
 This is an easy way to store JSON array data to .json files.
 ### How to use
 The default namespace for JSONSaver JSONSaver
+
 The namespace for the interface ISaveable is JSONSaver.Types
+
 The namespace for async saving is JSONSaver.Async
+
 If you want, the namespace for saving data, converting it, etc is JSONSaver.Data
 ```
 public class TestClass1234 : ISaveable<string>
