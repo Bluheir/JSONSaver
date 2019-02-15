@@ -43,6 +43,7 @@ namespace JSONSaver
             Path = path;
             Serialization = serialization;
             DefaultValue = defaultValue;
+            JsonFormatting = formatting;
             if (async)
             {
                 _constructor();
