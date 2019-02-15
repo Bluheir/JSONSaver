@@ -3,7 +3,7 @@
     /// <summary>
     /// An interface which has a single value
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of the key</typeparam>
     public interface ISaveable<T>
     {
         /// <summary>

@@ -4,10 +4,9 @@ This is an easy way to store JSON array data to .json files.
 The default namespace for JSONSaver JSONSaver
 
 The namespace for the interface ISaveable is JSONSaver.Types
-
-The namespace for async saving is JSONSaver.Async
-
 If you want, the namespace for saving data, converting it, etc is JSONSaver.Data
+
+I made the default value part of the constructor now
 ```
 public class TestClass1234 : ISaveable<string>
 {
@@ -17,11 +16,10 @@ public class TestClass1234 : ISaveable<string>
 ///
 static void Main()
 {
-  var a = new ValuesGetter<TestClass1234, string>(@"C:\Users\User\Desktop\test.json"); //The filepath can be anywhere
-  a.DefaultValue = new TestClass1234
+  var a = new ValuesGetter<TestClass1234, string>(@"C:\Users\User\Desktop\test.json",new TestClass1234
   {
     Age = 20
-  };
+  }); //The filepath can be anywhere
   Console.WriteLine(a.GetOrCreateValue("Sam").Age);
   var b = a.GetOrCreateValue("Tom");
   b.Age = 25;
