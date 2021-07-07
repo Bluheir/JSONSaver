@@ -1,14 +1,4 @@
-# JsonSaver
-This is an easy way to store JSON array data to .json files.
-### How to use
-The default namespace for JSONSaver is just simply JSONSaver
-
-The namespace for the interface ISaveable is JSONSaver.Types
-If you want, the namespace for saving data, converting it, etc is JSONSaver.Data
-
-Here is an example (brought directly from JsonDBTesting)
-```
-using System;
+﻿using System;
 using JSONSaver;
 using JSONSaver.Types;
 
@@ -82,4 +72,3 @@ What do you want to replace the password with?
 password1234
 Changed password
 */
-```

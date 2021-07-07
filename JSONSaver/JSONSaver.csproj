@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.1.0</Version>
+    <Authors>ChrisIsFun</Authors>
+    <Company />
+    <PackageTags>json easy dictionary list array xml</PackageTags>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/Bluheir/JSONSaver</RepositoryUrl>
+    <Description>Makes it so you can save array data easily in JSON and XML format.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Made the internal dictionary from a list to concurrent dictionary. Changed default value to a value factory. Updated Newtonsoft.Json dependency version. Renamed ValuesGetter class to JSONDatabase</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\slimc\source\repos\JSONSaver\JSONSaver\JSONSaver.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

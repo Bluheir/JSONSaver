@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JSONSaver</name>
+    </assembly>
+    <members>
+        <member name="T:JSONSaver.Data.DataStorage">
+            <summary>
+            Provides useful methods to serialize an object to a filepath and deserialize from a filepath
+            </summary>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.FileExists(System.String)">
+            <summary>
+            Returns if that file path exists or not
+            </summary>
+            <param name="path">The file path</param>
+            <returns>Returns true or false if the file path exists respectively</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.SaveData(System.Object,System.String,Newtonsoft.Json.Formatting)">
+            <summary>
+            Saves a value to the file path in json
+            </summary>
+            <param name="value">The value being saved</param>
+            <param name="path">The file path to save the data</param>
+            <param name="formatting">The formatting</param>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.SaveDataAsync(System.Object,System.String,Newtonsoft.Json.Formatting)">
+            <summary>
+            Saves data asynchronously to json and the file path
+            </summary>
+            <param name="value">The value to be saved</param>
+            <param name="path">The file location to save the value to</param>
+            <param name="formatting">The formatting</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.WriteAsync(System.String,System.String)">
+            <summary>
+            Writes the data to the specified location asynchronously
+            </summary>
+            <param name="data">The string to be written</param>
+            <param name="filepath">The file location</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.LoadData``1(System.String)">
+            <summary>
+            Loads the data from the specified path
+            </summary>
+            <typeparam name="T">The type for the data</typeparam>
+            <param name="filepath">The file path</param>
+            <returns>The data from that file deserialized to the T</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.ReadAllTextAsync(System.String)">
+            <summary>
+            Reads all text from the specified file path asynchronously
+            </summary>
+            <param name="filepath">The file location</param>
+            <returns>Returns the text from that file</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.LoadDataAsync``1(System.String)">
+            <summary>
+            Loads the data from the file from json to the specified type
+            </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="filepath">The filepath</param>
+            <returns>Returns the text deserialized to the type of T</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.XmlDeserializeFromString``1(System.String)">
+            <summary>
+            Converts the string from to the specified type
+            </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="objectData">The XML string</param>
+            <returns>Returns the string from XML to the specified type</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.LoadDataAsyncXML``1(System.String)">
+            <summary>
+            Loads the XML string from the specified file path and converts it to the specified type asynchronously
+            </summary>
+            <typeparam name="T">The Type to be converted to</typeparam>
+            <param name="filepath">The file path</param>
+            <returns>Returns the XML file text converted to the specified Type</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.XmlSerializeToString(System.Object)">
+            <summary>
+            Converts the object instance to a string based on XML format
+            </summary>
+            <param name="objectInstance">The object instance</param>
+            <returns>Returns a string serialized from the object instance</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.SaveDataAsyncXml(System.String,System.Object)">
+            <summary>
+            Serializes the value to XML and saves it to the file path asynchronously
+            </summary>
+            <param name="filePath">The file location</param>
+            <param name="value">The object to be serialized</param>
+            <returns>Returns Task</returns>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.SaveDataXml(System.String,System.Object)">
+            <summary>
+            Serializes the value to XML and saves it to the file path
+            </summary>
+            <param name="filePath">The file location</param>
+            <param name="value">The object to be serialized</param>
+        </member>
+        <member name="M:JSONSaver.Data.DataStorage.GetDataXml``1(System.String)">
+            <summary>
+            Reads all text from the file path and deserializes it to the specified type
+            </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="filePath">The file path</param>
+            <returns>Returns the deserialized text from the file</returns>
+        </member>
+        <member name="T:JSONSaver.JSONDatabase`2">
+            <summary>
+            The main class for saving data to a filepath in json
+            </summary>
+            <typeparam name="T">The ISaveable to be saved</typeparam>
+            <typeparam name="TKey">The Type of the key of T</typeparam>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Path">
+            <summary>
+            The main file path
+            </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.DefaultValue">
+            <summary>
+            The default value when new values are created.
+            </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Serialization">
+            <summary>
+            The serialization type
+            </summary>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.#ctor(System.String,System.Func{`1,`0},JSONSaver.SerializationType,Newtonsoft.Json.Formatting)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="path">Path to create JSON file</param>
+            <param name="defaultValue">Value factory when no value is found</param>
+            <param name="serialization">Either XML or JSON serialization</param>
+            <param name="formatting">Formatting type</param>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.JsonFormatting">
+            <summary>
+            The Json formatting to be used
+            </summary>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.SaveData">
+            <summary>
+            Saves all data to the file path
+            </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Item(`1)">
+            <summary>
+            An indexer for the values
+            </summary>
+            <param name="key">The key to get</param>
+            <returns>Returns a T of the specified key</returns>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.TryGetValue(`1,`0@)">
+            <summary>
+            Attempts to get the value associated with the specified key from the internal dictionary
+            </summary>
+            <param name="key">The key of the value to get</param>
+            <param name="value">The value to return. Will be default value of type if operation fails</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.GetOrAdd(`1)">
+            <summary>
+            Gets or creates a value with that specified key and returns it.
+            </summary>
+            <param name="key">The value with that key</param>
+            <returns>Returns the first value with that key. If it doesn't exist, creates a new value with that key and the value of the default value and returns it.</returns>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.SaveDataAsync">
+            <summary>
+            Saves all data to the file path asynchronously
+            </summary>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.ReloadAsync">
+            <summary>
+            Reloads the values from the data file
+            </summary>
+            <returns>Returns an empty Task</returns>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.Reload">
+            <summary>
+            Reloads the values from the data file
+            </summary>
+        </member>
+        <member name="T:JSONSaver.SerializationType">
+            <summary>
+            An enum of the value Xml or value of Json
+            </summary>
+        </member>
+        <member name="F:JSONSaver.SerializationType.Xml">
+            <summary>
+            Xml format
+            </summary>
+        </member>
+        <member name="F:JSONSaver.SerializationType.Json">
+            <summary>
+            Json format
+            </summary>
+        </member>
+        <member name="T:JSONSaver.Types.ISaveable`1">
+            <summary>
+            An interface which has a single value
+            </summary>
+            <typeparam name="T">The type of the key</typeparam>
+        </member>
+        <member name="P:JSONSaver.Types.ISaveable`1.Key">
+            <summary>
+            The key which identifies a part of the collection
+            </summary>
+        </member>
+    </members>
+</doc>
