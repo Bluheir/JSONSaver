@@ -74,7 +74,7 @@ Json Database file at end:
 /*
 Console output at end:
 Edit the json file. Will print password after you press enter. Current password is
-asdf
+
 New password is: Hahaha
 Do you want to change the password (y/n)?
 y

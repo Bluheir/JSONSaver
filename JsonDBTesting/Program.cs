@@ -49,26 +49,3 @@ namespace JsonDBTesting
 		string ISaveable<string>.Key { get => Username; set => Username = value; }
 	}
 }
-
-/*
-Json Database file at end:
-
-[
-  {
-    "Username": "CoolGuy1234",
-    "Password": "password1234"
-  }
-]
-*/
-
-/*
-Console output at end:
-Edit the json file. Will print password after you press enter. Current password is
-asdf
-New password is: Hahaha
-Do you want to change the password (y/n)?
-y
-What do you want to replace the password with?
-password1234
-Changed password
-*/
