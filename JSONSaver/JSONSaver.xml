@@ -122,22 +122,16 @@
             The main file path
             </summary>
         </member>
-        <member name="P:JSONSaver.JSONDatabase`2.DefaultValue">
-            <summary>
-            The default value when new values are created.
-            </summary>
-        </member>
         <member name="P:JSONSaver.JSONDatabase`2.Serialization">
             <summary>
             The serialization type
             </summary>
         </member>
-        <member name="M:JSONSaver.JSONDatabase`2.#ctor(System.String,System.Func{`1,`0},JSONSaver.SerializationType,Newtonsoft.Json.Formatting)">
+        <member name="M:JSONSaver.JSONDatabase`2.#ctor(System.String,JSONSaver.SerializationType,Newtonsoft.Json.Formatting)">
             <summary>
             Default constructor
             </summary>
             <param name="path">Path to create JSON file</param>
-            <param name="defaultValue">Value factory when no value is found</param>
             <param name="serialization">Either XML or JSON serialization</param>
             <param name="formatting">Formatting type</param>
         </member>
@@ -145,6 +139,28 @@
             <summary>
             The Json formatting to be used
             </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Keys">
+            <summary>
+            Keys enumerable
+            </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Values">
+            <summary>
+            Values enumerable
+            </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Count">
+            <summary>
+            Amount of items in JSON database
+            </summary>
+        </member>
+        <member name="P:JSONSaver.JSONDatabase`2.Item(System.Int32)">
+            <summary>
+            Returns an item of an index in JSON database
+            </summary>
+            <param name="index">Index to find</param>
+            <returns>Item at specified index</returns>
         </member>
         <member name="M:JSONSaver.JSONDatabase`2.SaveData">
             <summary>
@@ -158,20 +174,44 @@
             <param name="key">The key to get</param>
             <returns>Returns a T of the specified key</returns>
         </member>
+        <member name="M:JSONSaver.JSONDatabase`2.ContainsKey(`1)">
+            <summary>
+            Returns if the key exists in the internal dictionary
+            </summary>
+            <param name="key">The key</param>
+            <returns>If the key exists in the dictionary</returns>
+        </member>
         <member name="M:JSONSaver.JSONDatabase`2.TryGetValue(`1,`0@)">
             <summary>
             Attempts to get the value associated with the specified key from the internal dictionary
             </summary>
             <param name="key">The key of the value to get</param>
             <param name="value">The value to return. Will be default value of type if operation fails</param>
-            <returns></returns>
+            <returns>If the value was successfully returned</returns>
         </member>
-        <member name="M:JSONSaver.JSONDatabase`2.GetOrAdd(`1)">
+        <member name="M:JSONSaver.JSONDatabase`2.GetOrAdd(`1,System.Func{`1,`0})">
             <summary>
             Gets or creates a value with that specified key and returns it.
             </summary>
             <param name="key">The value with that key</param>
+            <param name="valueFactory">Value factory to add</param>
             <returns>Returns the first value with that key. If it doesn't exist, creates a new value with that key and the value of the default value and returns it.</returns>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.TryRemove(`1,`0@)">
+            <summary>
+            Trys to remove a value from data
+            </summary>
+            <param name="key">Value with key to remove</param>
+            <param name="value">Value that was removed</param>
+            <returns></returns>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.GetOrAdd(`1,`0)">
+            <summary>
+            Gets or creates a value with that specified key and returns it.
+            </summary>
+            <param name="key">The value with that key</param>
+            <param name="value">Value to add if key doesn't exist</param>
+            <returns></returns>
         </member>
         <member name="M:JSONSaver.JSONDatabase`2.SaveDataAsync">
             <summary>
@@ -188,6 +228,12 @@
             <summary>
             Reloads the values from the data file
             </summary>
+        </member>
+        <member name="M:JSONSaver.JSONDatabase`2.GetEnumerator">
+            <summary>
+            Returns enumerator
+            </summary>
+            <returns>Enumerator for all items in collection</returns>
         </member>
         <member name="T:JSONSaver.SerializationType">
             <summary>

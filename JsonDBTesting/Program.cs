@@ -8,9 +8,9 @@ namespace JsonDBTesting
 	{
 		static void Main(string[] args)
 		{
-			var db = new JSONDatabase<TestClass, string>("C:/Users/slimc/Desktop/data.json", a => new TestClass(), formatting: Newtonsoft.Json.Formatting.Indented);
+			var db = new JSONDatabase<TestClass, string>("C:/Users/slimc/Desktop/data.json", formatting: Newtonsoft.Json.Formatting.Indented);
 
-			var value = db.GetOrAdd("CoolGuy1234");
+			var value = db.GetOrAdd("CoolGuy1234", a => new TestClass());
 
 			db.SaveData();
 
@@ -19,7 +19,7 @@ namespace JsonDBTesting
 
 			db.Reload();
 
-			var newvalue = db.GetOrAdd("CoolGuy1234"); // The instance is new
+			var newvalue = db.GetOrAdd("CoolGuy1234", a => new TestClass()); // The instance is new
 
 			Console.WriteLine($"New password is: {newvalue.Password}");
 
